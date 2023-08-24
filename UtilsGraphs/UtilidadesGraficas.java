@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class UtilidadesGraficas {
     public static final int WIDTH = 640;
-    public static final int HEIGHT = 480;
+    public static final int HEIGHT = 640;
 
     public static void drawAxis(Graphics g) {
         g.setColor(Color.BLACK);

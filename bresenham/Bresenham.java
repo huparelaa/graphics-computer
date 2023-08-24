@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import UtilsGraphs.UtilidadesGraficas;
 
 public class Bresenham extends JPanel {
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 480;
+    public static final int WIDTH = UtilidadesGraficas.WIDTH;
+    public static final int HEIGHT = UtilidadesGraficas.HEIGHT;
 
     @Override
     public void paintComponent(Graphics g) {
