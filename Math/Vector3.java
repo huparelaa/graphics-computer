@@ -1,65 +1,65 @@
 package Math;
 
 public class Vector3 {
-    private double x, y, z;
+    private int x, y, z;
 
     // constructor
-    public Vector3(double x, double y, double z) {
+    public Vector3(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
 
-    public double getZ() {
+    public int getZ() {
         return z;
     }
 
-    public void setZ(double z) {
+    public void setZ(int z) {
         this.z = z;
     }
 
     public static Vector3 crossProduct(Vector3 v1, Vector3 v2) {
         // hacemos el producto cruz
-        double x = v1.getY() * v2.getZ() - v1.getZ() * v2.getY();
-        double y = v1.getZ() * v2.getX() - v1.getX() * v2.getZ();
-        double z = v1.getX() * v2.getY() - v1.getY() * v2.getX();
+        int x = v1.getY() * v2.getZ() - v1.getZ() * v2.getY();
+        int y = v1.getZ() * v2.getX() - v1.getX() * v2.getZ();
+        int z = v1.getX() * v2.getY() - v1.getY() * v2.getX();
         // creamos el vector resultante
         Vector3 result = new Vector3(x, y, z);
         return result;
     }
 
-    public static double dotProduct(Vector3 v1, Vector3 v2) {
+    public static int dotProduct(Vector3 v1, Vector3 v2) {
         // hacemos el producto punto
-        double result = v1.getX() * v2.getX() + v1.getY() * v2.getY() + v1.getZ() * v2.getZ();
+        int result = v1.getX() * v2.getX() + v1.getY() * v2.getY() + v1.getZ() * v2.getZ();
         return result;
     }
 
-    public double magnitude() {
+    public double magnitude(){
         double result = Math.sqrt(Math.pow(this.getX(), 2) + Math.pow(this.getY(), 2) + Math.pow(this.getZ(), 2));
         return result;
     }
 
-    public static Vector3 normalize(Vector3 v) {
+    public static Vector3 normalize(Vector3 v){
         double magnitude = v.magnitude();
-        double x = v.getX() / magnitude;
-        double y = v.getY() / magnitude;
-        double z = v.getZ() / magnitude;
+        int x = (int) (v.getX() / magnitude);
+        int y = (int) (v.getY() / magnitude);
+        int z = (int) (v.getZ() / magnitude);
         Vector3 result = new Vector3(x, y, z);
         return result;
     }

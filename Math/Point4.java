@@ -1,10 +1,10 @@
 package Math;
 
 public class Point4 {
-    private double x, y, z, w;
+    private int x, y, z, w;
 
     // constructor
-    public Point4(double x, double y, double z, double w) {
+    public Point4(int x, int y, int z, int w) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -12,36 +12,36 @@ public class Point4 {
     }
 
     // getters
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public double getZ() {
+    public int getZ() {
         return z;
     }
 
-    public double getW() {
+    public int getW() {
         return w;
     }
 
     // setters
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
 
-    public void setZ(double z) {
+    public void setZ(int z) {
         this.z = z;
     }
 
-    public void setW(double w) {
+    public void setW(int w) {
         this.w = w;
     }
 

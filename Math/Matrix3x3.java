@@ -1,53 +1,53 @@
 package Math;
 
 public class Matrix3x3 {
+    
+    //matrix3x3 setup
+    private int[][] matrix = new int[3][3];
 
-    // matrix3x3 setup
-    private double[][] matrix = new double[3][3];
-
-    // constructor
-    public Matrix3x3(double[][] matrix) {
+    //constructor
+    public Matrix3x3(int[][] matrix) {
         this.matrix = matrix;
     }
 
-    // getters
-    public double[][] getMatrix() {
+    //getters
+    public int[][] getMatrix() {
         return matrix;
     }
 
-    // setters
-    public void setMatrix(double[][] matrix) {
+    //setters
+    public void setMatrix(int[][] matrix) {
         this.matrix = matrix;
     }
 
-    // methods
+    //methods
     public static Point3 times(Matrix3x3 matrix, Point3 point) {
-        double[][] matrixArray = matrix.getMatrix();
-        double[] pointArray = { point.getX(), point.getY(), point.getW() };
-        double[] resultArray = new double[3];
+        int[][] matrixArray = matrix.getMatrix();
+        int[] pointArray = {point.getX(), point.getY(), point.getW()};
+        int[] resultArray = new int[3];
         for (int i = 0; i < 3; i++) {
-            double result = 0;
+            int result = 0;
             for (int j = 0; j < 3; j++) {
                 result += matrixArray[i][j] * pointArray[j];
             }
             resultArray[i] = result;
         }
-        Point3 resultPodouble = new Point3(resultArray[0], resultArray[1], resultArray[2]);
-        return resultPodouble;
+        Point3 resultPoint = new Point3(resultArray[0], resultArray[1], resultArray[2]);
+        return resultPoint;
     }
 
-    public static Matrix3x3 times(Matrix3x3 matrix1, Matrix3x3 matrix2) {
-        double[][] matrix1Array = matrix1.getMatrix();
-        double[][] matrix2Array = matrix2.getMatrix();
-        double[][] resultArray = new double[3][3];
+    public static Matrix3x3 times(Matrix3x3 matrix1, Matrix3x3 matrix2){
+        int[][] matrix1Array = matrix1.getMatrix();
+        int[][] matrix2Array = matrix2.getMatrix();
+        int[][] resultArray = new int[3][3];
         for (int i = 0; i < 3; i++) {
-            double[] result = new double[3];
+            int[] result = new int[3];
             for (int j = 0; j < 3; j++) {
-                double resultdouble = 0;
+                int resultInt = 0;
                 for (int k = 0; k < 3; k++) {
-                    resultdouble += matrix1Array[i][k] * matrix2Array[k][j];
+                    resultInt += matrix1Array[i][k] * matrix2Array[k][j];
                 }
-                result[j] = resultdouble;
+                result[j] = resultInt;
             }
             resultArray[i] = result;
         }
