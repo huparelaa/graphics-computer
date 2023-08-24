@@ -1,7 +1,7 @@
 # Graphichs computer course
 ## Content:
 * [Bresenham](#Bresenham)
-
+* [Images from text file](#Draw-from-text-file)
 ## How to run it?
 Before run the commands make sure you are not in a specific directory
 ### Bresenham
