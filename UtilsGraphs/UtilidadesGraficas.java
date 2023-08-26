@@ -8,8 +8,9 @@ public class UtilidadesGraficas {
     public static final int HEIGHT = 640;
 
     public static void drawAxis(Graphics g) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
         myDrawLine(g, -300, 0, 300, 0);
+        g.setColor(Color.GREEN);
         myDrawLine(g, 0, -300, 0, 300);
     }
 

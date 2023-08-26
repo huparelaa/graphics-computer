@@ -1,5 +1,6 @@
 package drawFromTextFile;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +20,8 @@ public class PaintObject extends JPanel {
         super.paintComponent(g);
 
         UtilidadesGraficas.drawAxis(g);
-        readFile("drawFromTextFile/gancho.txt", g);
+        g.setColor(Color.BLACK);
+        readFile("drawFromTextFile/house.txt", g);
     }
 
     public static void readFile(String fileName, Graphics g) {
