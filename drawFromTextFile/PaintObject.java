@@ -45,10 +45,10 @@ public class PaintObject extends JPanel {
                 int indice2 = scanner.nextInt();
                 UtilidadesGraficas.myDrawLine(
                         g,
-                        points[indice1].getX(),
-                        points[indice1].getY(),
-                        points[indice2].getX(),
-                        points[indice2].getY());
+                        (int)points[indice1].getX(),
+                        (int)points[indice1].getY(),
+                        (int)points[indice2].getX(),
+                        (int)points[indice2].getY());
             }
             scanner.close();
         } catch (FileNotFoundException e) {
