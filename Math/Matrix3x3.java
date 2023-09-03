@@ -3,9 +3,21 @@ package Math;
 public class Matrix3x3 {
 
     // matrix3x3 setup
-    private double[][] matrix = new double[3][3];
+    protected double[][] matrix = new double[3][3];
 
-    // constructor
+    // constructors
+    public Matrix3x3() { // identity matrix
+        this.matrix[0][0] = 1;
+        this.matrix[0][1] = 0;
+        this.matrix[0][2] = 0;
+        this.matrix[1][0] = 0;
+        this.matrix[1][1] = 1;
+        this.matrix[1][2] = 0;
+        this.matrix[2][0] = 0;
+        this.matrix[2][1] = 0;
+        this.matrix[2][2] = 1;
+    }
+
     public Matrix3x3(double[][] matrix) {
         this.matrix = matrix;
     }

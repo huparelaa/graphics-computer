@@ -2,13 +2,10 @@ package drawFromTextFile;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 import javax.swing.JPanel;
 
-import Math.Point3;
+import FileReader.FileReader;
 import UtilsGraphs.UtilidadesGraficas;
 
 public class PaintObject extends JPanel {
@@ -21,38 +18,20 @@ public class PaintObject extends JPanel {
 
         UtilidadesGraficas.drawAxis(g);
         g.setColor(Color.BLACK);
-        readFile("drawFromTextFile/house.txt", g);
+        FileReader fileReader = new FileReader("drawFromTextFile/gancho.txt");
+        paintFigure(g, fileReader);
     }
 
-    public static void readFile(String fileName, Graphics g) {
-        try {
-            Scanner scanner = new Scanner(new File(fileName));
-
-            int numPoints = scanner.nextInt();
-
-            Point3 points[] = new Point3[numPoints];
-
-            for (int i = 1; i <= numPoints; i++) {
-                int x = scanner.nextInt();
-                int y = scanner.nextInt();
-                int w = 1;
-                points[i - 1] = new Point3(x, y, w);
-            }
-
-            int numLines = scanner.nextInt();
-            for (int i = 1; i <= numLines; i++) {
-                int indice1 = scanner.nextInt();
-                int indice2 = scanner.nextInt();
-                UtilidadesGraficas.myDrawLine(
-                        g,
-                        (int)points[indice1].getX(),
-                        (int)points[indice1].getY(),
-                        (int)points[indice2].getX(),
-                        (int)points[indice2].getY());
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public void paintFigure(Graphics g, FileReader fileReader) {
+        for (int i = 0; i < fileReader.numLines; i++) {
+            int indice1 = fileReader.fromPointToPoint[i][0];
+            int indice2 = fileReader.fromPointToPoint[i][1];
+            UtilidadesGraficas.myDrawLine(
+                    g,
+                    (int)fileReader.points[indice1].getX(),
+                    (int)fileReader.points[indice1].getY(),
+                    (int)fileReader.points[indice2].getX(),
+                    (int)fileReader.points[indice2].getY());
         }
     }
 }
