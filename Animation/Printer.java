@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 
 import FileReader.FileReader;
 import Math.Matrix3x3;
-import Math.Point3;
 import Math.TranslScalRot3x3;
 import UtilsGraphs.UtilidadesGraficas;
 
