@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Math.TranslScalRot4x4;
 import UtilsGraphs.UtilidadesGraficas;
 
 public class Main extends JPanel implements KeyListener {
@@ -49,6 +50,57 @@ public class Main extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+      int key = e.getKeyCode();
+      if(key == KeyEvent.VK_D) {
+        po.ot.dx += ObjectTransformation.DELTA_TRANSL;    
+
+        repaint();
+      } else if(key == KeyEvent.VK_A) {
+
+        po.ot.dx -= ObjectTransformation.DELTA_TRANSL;
+        repaint();
+      } else if(key == KeyEvent.VK_W) {     
+
+        po.ot.dy += ObjectTransformation.DELTA_TRANSL;
+        repaint();
+      } else if(key == KeyEvent.VK_S) {
+
+        po.ot.dy -= ObjectTransformation.DELTA_TRANSL;
+        repaint();
+      } else if(key == KeyEvent.VK_Q) {
+
+        po.ot.sx += ObjectTransformation.DELTA_SCAL;
+        po.ot.sy += ObjectTransformation.DELTA_SCAL;
+        po.ot.sz += ObjectTransformation.DELTA_SCAL;
+        repaint();
+      } else if(key == KeyEvent.VK_E) {
+
+        po.ot.sx -= ObjectTransformation.DELTA_SCAL;
+        po.ot.sy -= ObjectTransformation.DELTA_SCAL;
+        po.ot.sz -= ObjectTransformation.DELTA_SCAL;
+        repaint();
+      } else if(key == KeyEvent.VK_R) {
+        po.ot.thetaX += ObjectTransformation.DELTA_ROT;
+        repaint();
+      } else if(key == KeyEvent.VK_F) {
+        po.ot.thetaX -= ObjectTransformation.DELTA_ROT;
+        repaint();
+      } else if(key == KeyEvent.VK_T) {
+        po.ot.thetaY += ObjectTransformation.DELTA_ROT;
+        repaint();
+      } else if(key == KeyEvent.VK_G) {
+        po.ot.thetaY -= ObjectTransformation.DELTA_ROT;
+        repaint();
+      } else if(key == KeyEvent.VK_Y) {
+        po.ot.thetaZ += ObjectTransformation.DELTA_ROT;
+        repaint();
+      } else if(key == KeyEvent.VK_H) {
+        po.ot.thetaZ -= ObjectTransformation.DELTA_ROT;
+        repaint();
+      }else if(key == KeyEvent.VK_Z) {
+        po.resetVertices();
+        repaint();
+      }
     }
 
     public static void main(String[] args) {
@@ -75,6 +127,9 @@ public class Main extends JPanel implements KeyListener {
         frame.setLocationRelativeTo(null);
         // Mostrar el frame
         frame.setVisible(true);
+
+        //Definimos el centro de las transformaciones
+        TranslScalRot4x4.CENTER_TRANFORMS = true;
 
     }
 
