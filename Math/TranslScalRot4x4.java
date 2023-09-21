@@ -76,4 +76,32 @@ public class TranslScalRot4x4 extends Matrix4x4 {
         Matrix4x4 finalMatrix = Matrix4x4.times(rotationX, Matrix4x4.times(rotationY, Matrix4x4.times(rotationZ, m1)));
         this.matrix = finalMatrix.matrix;
     }
+    public TranslScalRot4x4(double dx, double dy, double dz,
+            double sx, double sy, double sz,
+            double thetaX, double thetaY, double thetaZ,
+            double centerX, double centerY, double centerZ, double u, double v, double n, double cameraX, double cameraY, boolean cameraFollow) {
+        super();
+         // Camara
+         matrix = Matrix4x4.times(this, new Translation4x4(u, v, n)).matrix;
+         if (cameraFollow)
+             matrix = Matrix4x4.times(this, new Translation4x4(centerX, centerY, centerZ)).matrix;
+ 
+         matrix = Matrix4x4.times(this, new RotationX4x4(cameraX)).matrix;
+         matrix = Matrix4x4.times(this, new RotationY4x4(cameraY)).matrix;
+ 
+         // Regresar al centro
+         if (cameraFollow)
+             matrix = Matrix4x4.times(this, new Translation4x4(dx, dy, dz)).matrix;
+         else
+             matrix = Matrix4x4.times(this, new Translation4x4(centerX + dx, centerY + dy, centerZ + dz)).matrix;
+ 
+         // Scaling
+         matrix = Matrix4x4.times(this, new Scaling4x4(sx, sy, sz)).matrix;
+         // Rotaciones
+         matrix = Matrix4x4.times(this, new RotationX4x4(thetaX)).matrix;
+         matrix = Matrix4x4.times(this, new RotationY4x4(thetaY)).matrix;
+         matrix = Matrix4x4.times(this, new RotationZ4x4(thetaZ)).matrix;
+         // Traslacion
+         matrix = Matrix4x4.times(this, new Translation4x4(-centerX, -centerY, -centerZ)).matrix;
+    }
 }
